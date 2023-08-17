@@ -1,0 +1,12 @@
+* Alacritty builder
+This Dockerfile builds =alacritty= from source and outputs the binary and man files to the builder host.
+Allows compilation of newer Alacritty versions without the need to install anything, other than Docker.
+Supports the following build args:
+ * =BASE_OS=
+ * =GIT_BRANCH=
+
+** Usage
+#+begin_src console
+  $ DOCKER_BUILDKIT=1 docker build -t alacritty-builder --output ~/tmp/alacritty/ \
+      --build-arg GIT_BRANCH=v0.12.2 --build-arg BASE_OS=ubuntu:jammy .
+#+end_src
